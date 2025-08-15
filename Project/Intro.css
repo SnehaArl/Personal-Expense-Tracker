@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body, html {
+  height: 100%;
+  background: #fff;
+}
+
+.intro-wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+.left-panel {
+  background: #4CA771;
+  color: #fff;
+  width: 40%;
+  height: 100vh;
+  clip-path: polygon(
+    0 0,            
+    100% 0,      
+    100% 40%,       
+    120% 50%,     
+    100% 60%,       
+    100% 100%,      
+    0 100%          
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.left-panel h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.headline {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.headline .black {
+  color: #000;
+}
+
+.headline .green {
+  color: #4CA771;
+  font-weight: 600;
+}
+
+.button-group {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  padding: 12px 28px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn {
+  background-color: #4CA771;
+  color: #fff;
+}
+
+.register-btn {
+  background-color: #000000;
+  color: #ffff;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
