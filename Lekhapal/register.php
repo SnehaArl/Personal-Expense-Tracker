@@ -42,7 +42,7 @@
 
           <div id="error-message" style="color: red; margin-bottom: 10px"></div>
 
-          <button type="submit" class="btn">Register</button>
+          <input type="submit" class="btn" value="Register" /> 
         </form>
       </div>
 
