@@ -25,7 +25,7 @@
             <div class="form-container">
             <div class="addincome">
                 <div class="income-title">Add Income</div>
-                <form action="" method="post">
+                <form action="addincomeProcess.php" method="post">
                     <div class="form-group">
                     <label>Amount</label>
                     <input type="text" id="income_amt" name="income_amt" required>
