@@ -21,7 +21,7 @@
             //stores user_id and username in session variable
             $_SESSION['user_id']=$user_id; 
             $_SESSION['username']=$uname; 
-            header("Location: welcome.php"); 
+            header("Location: dashboard.php"); 
         }
         else{
 
