@@ -1,3 +1,11 @@
+<?php
+session_start();
+include("dbconnection.php");
+if (!isset($_SESSION['user_id'])) {
+    // User not logged in, redirect to login
+    header("Location: login.php");
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">

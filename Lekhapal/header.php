@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +14,7 @@
             <div class="lekhapal"><h1>Lekhapal</h1></div>
 
             <div class="profile">
-                <span>Username</span>
+                <span><?php echo $_SESSION['username']; ?></span>
                 <span class="material-symbols-sharp">account_circle</span>
             </div>
         </header>

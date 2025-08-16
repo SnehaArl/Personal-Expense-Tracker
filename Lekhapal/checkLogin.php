@@ -1,5 +1,7 @@
-<?php   
-    include("dbconnection.php"); 
+<?php 
+  session_start();
+  include("dbconnection.php"); 
+
     //Checks if the form was submitted
     if(isset($_POST['login'] )){
         $uname=$_POST['username'];
@@ -11,10 +13,15 @@
         $count=mysqli_num_rows($result);//Counts how many rows were returned by the query
 
         if($count==1){
-            $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-            $uesr_id=$row['user_id'];
 
-            header("Location: welcome.php"); // // Redirect with user_id as URL parameter
+            $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+            $user_id=$row['user_id'];
+            $username=$row['username'];
+
+            //stores user_id and username in session variable
+            $_SESSION['user_id']=$user_id; 
+            $_SESSION['username']=$uname; 
+            header("Location: welcome.php"); 
         }
         else{
 
