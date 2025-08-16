@@ -26,7 +26,7 @@
           <div class="forgot-link">
             <a href="#">Forget Password?</a>
           </div>
-          <button type="submit" class="btn" value="login" name="submit">Login</button>
+          <input type="submit" class="btn" value="Login" name="login" />
           <div class="register-link">
             <p>Don't have an account? <a href="#">Register</a></p>
           </div>

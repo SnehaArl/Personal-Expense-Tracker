@@ -1,7 +1,7 @@
 <?php   
     include("dbconnection.php"); 
     //Checks if the form was submitted
-    if(isset($_POST['submit'] )){
+    if(isset($_POST['login'] )){
         $uname=$_POST['username'];
         $pass=$_POST['psw'];
 
