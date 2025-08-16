@@ -16,7 +16,7 @@
             </div>
 
             <div class="sidebar">
-                <a href="href=dashboard.php">
+                <a href="dashboard.php">
                 <span class="material-symbols-sharp">dashboard</span>
                 <h3>Dashboard</h3>
                  </a>
@@ -41,7 +41,7 @@
                <h3>Setting</h3>
                </a>
 
-                <a href="#">
+                <a href="logout.php">
                 <span class="material-symbols-sharp">logout</span>
                 <h3>Log Out</h3>
                  </a>
