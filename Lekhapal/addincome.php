@@ -51,7 +51,7 @@
                     <input type="date" id="date" name="date" required>
                     </div>
   
-                    <button id="add-btn">Add Income</button>
+                    <button type="submit" id="addinc-btn">Add Income</button>
                 </form>
             </div>
             </div>
