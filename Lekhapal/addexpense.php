@@ -54,7 +54,7 @@
                     <input type="date" id="date" name="date">
                     </div>
   
-                    <button id="add-btn">Add Expenses</button>
+                    <button type="submit" id="addexp-btn">Add Expenses</button>
                 </form>
             </div>
             </div>
