@@ -229,7 +229,7 @@ main .addexpense .expense-title {
     box-sizing: border-box;
 }
 
-.addexpense #add-btn {
+.addexpense #addexp-btn {
     background-color: var(--clr-green);
     color: var(--clr-white1);
     border: none;
@@ -255,7 +255,7 @@ main .addincome .income-title {
     margin-bottom: 8px;
     text-align: center;
 }
-.addexpense #add-btn {
+.addincome #addinc-btn {
     background-color: var(--clr-green);
     color: var(--clr-white1);
     border: none;
