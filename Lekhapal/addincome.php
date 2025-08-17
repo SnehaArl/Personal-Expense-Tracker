@@ -40,8 +40,8 @@
                                 <?php
                                 $sql = "SELECT * FROM income_categories";
                                 $result = mysqli_query($conn, $sql);
-                                $row = mysqli_fetch_assoc($result);
-                                while ($row ) {
+    
+                                while ($row = mysqli_fetch_assoc($result) ) {
                                    echo "<option value='{$row['id']}'>{$row['name']}</option>";
                                 }
                                 ?>
