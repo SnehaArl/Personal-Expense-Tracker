@@ -33,6 +33,9 @@
             align-items:center;
             text-align: center;
         }
+        .content1 h1{
+            color:#000;
+        }
         .content2{
             grid-area: content2;
             margin-bottom: 1rem;
@@ -42,6 +45,7 @@
             box-shadow: var(--clr-boxshadow);
             justify-content: center;
             align-items:center;
+            text-align: center;
         }
         .content3{
             grid-area: content3;
@@ -52,6 +56,7 @@
             box-shadow: var(--clr-boxshadow);
             justify-content: center;
             align-items:center;
+            text-align: center;
         }
         .content4{
             grid-area: content4;
@@ -72,16 +77,20 @@
 
         <div class="content1" style="color:#ffffff;">
             <h2>Wallet</h2>
-            <div id="wallet-content>
+            <div id="wallet-content">
                 <?php
-                    $user_id = $_SESSION['user_id'];
-                    $fetchbalance = "SELECT cash_in_hand FROM wallet WHERE user_id='user_id'";
-                    $result = mysqli_query($conn, $sql);
-          
-                    while($row=mysqli_fetch_assoc($result)){
-                        echo "<h1>{$row['cash_in_hand']}</h1> ";
-                    }
-                ?>
+        $user_id = $_SESSION['user_id'];
+        $sql = "SELECT cash_in_hand FROM wallet WHERE user_id='$user_id'";
+        $result = mysqli_query($conn, $sql);
+        
+        if(mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_assoc($result)) {
+                echo "<h1> {$row['cash_in_hand']}</h1>";
+            }
+        } else {
+            echo "<p>No wallet data found</p>";
+        }
+        ?>
             </div>
         </div>
         <div class="content2" style="color:#000;">Expenses</div>
