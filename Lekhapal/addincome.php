@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0" />
-   <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="script.js" defer></script>
 </head>
+
 <body>
-     <div class="container">
+    <div class="container">
 
         <?php include 'header.php'; ?>
         <?php include 'sidebar.php'; ?>
@@ -23,40 +25,46 @@
                 <span id="menu" class="material-symbols-sharp" onclick='openSidebar()'>menu</span>
             </div>
             <div class="form-container">
-            <div class="addincome">
-                <div class="income-title">Add Income</div>
-                <form action="addincomeProcess.php" method="post">
-                    <div class="form-group">
-                    <label>Amount</label>
-                    <input type="text" id="income_amt" name="income_amt" required>
-                    </div>
+                <div class="addincome">
+                    <div class="income-title">Add Income</div>
+                    <form action="addincomeProcess.php" method="post">
+                        <div class="form-group">
+                            <label>Amount</label>
+                            <input type="text" id="income_amt" name="income_amt" required>
+                        </div>
 
-                    <div class="form-group">
-                    <label>Category</label>
-                    <select name="inc_category" id="inc_category" required>
-                        <option value="" selected disabled>--Select--</Option>
-                        <option value="salary">Salary</option>
-                        <option value="bonus">Bonus</option>
-                        <option value="others">Others</option>
-                    </select>
-                    </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select name="inc_category" id="inc_category" required>
+                                <option value="" selected disabled>--Select--</Option>
+                                <?php
+                                $sql = "SELECT * FROM income_categories";
+                                $result = mysqli_query($conn, $sql);
+                                $row = mysqli_fetch_assoc($result);
+                                while ($row ) {
+                                   echo "<option value='{$row['id']}'>{$row['name']}</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                    <label>Description</label>
-                    <textarea id="inc_description" name="inc_description" rows="4" cols="12" required></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="inc_description" name="inc_description" rows="4" cols="12" required></textarea>
+                        </div>
 
-                    <div class="form-group">
-                    <label>Date</label>
-                    <input type="date" id="date" name="date" required>
-                    </div>
-  
-                    <button type="submit" id="addinc-btn">Add Income</button>
-                </form>
-            </div>
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+
+                        <button type="submit" id="addinc-btn">Add Income</button>
+                    </form>
+                </div>
             </div>
         </main>
         <!--main end-->
     </div>
 </body>
+
 </html>

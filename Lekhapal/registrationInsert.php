@@ -9,9 +9,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
  $sql="INSERT INTO `users` (`name`, `username`, `email`, `password`) VALUES ('$name','$uname','$mail','$pass')";
- 
+
+ //i.e.if true
 if (mysqli_query($conn, $sql)) {
-     header("Location:login.php");
+    //getting the last inserted auto-incremented id back for wallet table
+    $user_id = mysqli_insert_id($conn);
+
+    $walletsql = "INSERT INTO wallet (user_id, cash_in_hand) VALUES ('$user_id', 0)";
+    mysqli_query($conn, $wallet_sql);
+    header("Location:login.php");
 }
  else {
     echo "<p style='color:red'>Error: " . mysqli_error($conn) . "</p>";

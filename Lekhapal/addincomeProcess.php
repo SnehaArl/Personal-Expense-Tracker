@@ -10,17 +10,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $date = $_POST['date'];
 
     // Insert expense
-    $insert = "INSERT INTO income (user_id, amount, category, description, date) 
-               VALUES ('$user_id', '$amount', '$category', '$desc', '$date')";
-    mysqli_query($conn, $insert);
+    $insertsql = "INSERT INTO incomes (user_id, category_id, amount,date, description) 
+               VALUES ('$user_id', '$category','$amount',  '$date','$desc')";
+    mysqli_query($conn, $insertsql);
 
-    // Update user wallet and total_expenses
-    $update = "UPDATE users 
-               SET wallet = wallet - $amount, total_expenses = total_expenses + $amount 
+    // Update user wallet
+    $update = "UPDATE wallet
+               SET cash_in_hand = cash_in_hand + $amount 
                WHERE id = '$user_id'";
     mysqli_query($conn, $update);
 
-    // Redirect back to dashboard
     header("Location: dashboard.php");
     exit();
 }
