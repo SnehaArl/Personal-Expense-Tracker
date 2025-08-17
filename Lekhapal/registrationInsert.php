@@ -16,7 +16,7 @@ if (mysqli_query($conn, $sql)) {
     $user_id = mysqli_insert_id($conn);
 
     $walletsql = "INSERT INTO wallet (user_id, cash_in_hand) VALUES ('$user_id', 0)";
-    mysqli_query($conn, $wallet_sql);
+    mysqli_query($conn, $walletsql);
     header("Location:login.php");
 }
  else {
