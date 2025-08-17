@@ -29,6 +29,9 @@
             background-color: #d65804ff;
             border-radius: 20px;
             box-shadow: var(--clr-boxshadow);
+            justify-content: center;
+            align-items:center;
+            text-align: center;
         }
         .content2{
             grid-area: content2;
@@ -37,6 +40,8 @@
             border-radius: 20px;
             border-radius: 20px;
             box-shadow: var(--clr-boxshadow);
+            justify-content: center;
+            align-items:center;
         }
         .content3{
             grid-area: content3;
@@ -45,6 +50,8 @@
             border-radius: 20px;
             border-radius: 20px;
             box-shadow: var(--clr-boxshadow);
+            justify-content: center;
+            align-items:center;
         }
         .content4{
             grid-area: content4;
@@ -56,13 +63,27 @@
     <div class="container">
     <?php include 'header.php'?>
     <?php include 'sidebar.php'?>
+    <?php include 'dbconnection.php'?>
 
     <main id="dashboard-main">
         <div class="top-bar">
                 <span id="menu" class="material-symbols-sharp" onclick='openSidebar()'>menu</span>
         </div>
 
-        <div class="content1" style="color:#ffffff;">Wallet</div>
+        <div class="content1" style="color:#ffffff;">
+            <h2>Wallet</h2>
+            <div id="wallet-content>
+                <?php
+                    $user_id = $_SESSION['user_id'];
+                    $fetchbalance = "SELECT cash_in_hand FROM wallet WHERE user_id='user_id'";
+                    $result = mysqli_query($conn, $sql);
+                    $row=mysqli_fetch_assoc($result);
+                    while($row){
+                        echo "<h1>{$row['cash_in_hand']}</h1> ";
+                    }
+                ?>
+            </div>
+        </div>
         <div class="content2" style="color:#000;">Expenses</div>
         <div class="content3" style="color:#ffffff;">Income</div>
         <div class="content4" style="background-color: #000;color:#ffffff;">Image</div>
