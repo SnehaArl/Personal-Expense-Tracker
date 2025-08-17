@@ -15,13 +15,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_query($conn, $insertsql);
 
     // Update user wallet
-    $update = "UPDATE wallet
-               SET cash_in_hand = cash_in_hand + $amount 
-               WHERE id = '$user_id'";
-    mysqli_query($conn, $update);
-
+    if(mysqli_query($conn, $insertsql)) {
+        // Update wallet if insert was successful
+        $update_sql = "UPDATE wallet 
+                      SET cash_in_hand = cash_in_hand + $amount 
+                      WHERE user_id = '$user_id'";
+        
+        if(mysqli_query($conn, $update_sql)) {
+            header("Location: dashboard.php");
+        } else {
+            echo "Error updating wallet: " . mysqli_error($conn);
+        }
+    } else {
+        echo "Error adding income: " . mysqli_error($conn);
+    }
     header("Location: dashboard.php");
-    exit();
 }
 
 ?>
