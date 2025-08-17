@@ -24,8 +24,8 @@ if (!isset($_SESSION['user_id'])) {
             <div class="lekhapal"><h1>Lekhapal</h1></div>
 
             <div class="profile">
-                <span class="username"><?php echo $_SESSION['username']; ?></span>
-                <span class="material-symbols-sharp">account_circle</span>
+                <span style="color: var(--clr-white1); font-size: 1.5rem;"><?php echo $_SESSION['username']; ?></span>
+                <span class="material-symbols-sharp" style="color: var(--clr-white1); font-size: 2.5rem;">account_circle</span>
             </div>
         </header>
         <!--header end-->
