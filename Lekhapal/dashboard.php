@@ -26,7 +26,8 @@
         .content1{
             grid-area: content1;
             margin-bottom: 1rem;
-            background-color: #d65804ff;
+            background-color: #ffffff;
+            color: #d65804ff;
             border-radius: 20px;
             box-shadow: var(--clr-boxshadow);
             justify-content: center;
@@ -34,12 +35,12 @@
             text-align: center;
         }
         .content1 h1{
-            color:#000;
+            color: #000;
         }
         .content2{
             grid-area: content2;
             margin-bottom: 1rem;
-             background-color: #ffffff;
+            background-color: #d65804ff;
             border-radius: 20px;
             border-radius: 20px;
             box-shadow: var(--clr-boxshadow);
@@ -50,7 +51,7 @@
         .content3{
             grid-area: content3;
             margin-bottom: 1rem;
-            background-color: #d65804ff;
+            background-color: #ffffff;
             border-radius: 20px;
             border-radius: 20px;
             box-shadow: var(--clr-boxshadow);
@@ -60,7 +61,6 @@
         }
         .content4{
             grid-area: content4;
-            
         }
    </style>
 </head>
@@ -75,7 +75,7 @@
                 <span id="menu" class="material-symbols-sharp" onclick='openSidebar()'>menu</span>
         </div>
 
-        <div class="content1" style="color:#ffffff;">
+        <div class="content1" >
             <h2>Wallet</h2>
             <div id="wallet-content">
                 <?php
@@ -93,9 +93,10 @@
         ?>
             </div>
         </div>
-        <div class="content2" style="color:#000;">Expenses</div>
-        <div class="content3" style="color:#ffffff;">Income</div>
-        <div class="content4" style="background-color: #000;color:#ffffff;">Image</div>
+        <div class="content2" style="color:#ffffff;"><h2>Expenses<h2></h2></div>
+        <div class="content3" style="color:#d65804ff;"><h2>Income></h2></div>
+        <div class="content4" style="background-color: #000;color:#ffffff;">Image
+        </div>
     </main>
 </div>
 </body>
