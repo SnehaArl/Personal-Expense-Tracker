@@ -12,8 +12,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Insert expense
     $insertsql = "INSERT INTO incomes (user_id, category_id, amount,date, description) 
                VALUES ('$user_id', '$category','$amount',  '$date','$desc')";
-    mysqli_query($conn, $insertsql);
-
     // Update user wallet
     if(mysqli_query($conn, $insertsql)) {
         // Update wallet if insert was successful
