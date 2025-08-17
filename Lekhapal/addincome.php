@@ -33,17 +33,17 @@
 
                     <div class="form-group">
                     <label>Category</label>
-                    <select name="income" id="income" required>
-                        <option value="">--Select--</Option>
-                        <option value="">Salary</option>
-                        <option value="">Bonus</option>
-                        <option value="">Other</option>
+                    <select name="inc_category" id="inc_category" required>
+                        <option value="" selected disabled>--Select--</Option>
+                        <option value="salary">Salary</option>
+                        <option value="bonus">Bonus</option>
+                        <option value="others">Others</option>
                     </select>
                     </div>
 
                     <div class="form-group">
                     <label>Description</label>
-                    <textarea id="income_desc" name="income_desc" rows="4" cols="12" required></textarea>
+                    <textarea id="inc_description" name="inc_description" rows="4" cols="12" required></textarea>
                     </div>
 
                     <div class="form-group">
