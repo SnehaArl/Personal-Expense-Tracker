@@ -4,20 +4,20 @@ include 'dbconnection.php';
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $user_id = $_SESSION['user_id'];
-    $amount = $_POST['income_amt'];
-    $category = $_POST['inc_category'];
-    $desc = $_POST['inc_description'];
+    $amount = $_POST['expense_amt'];
+    $category = $_POST['exp_category'];
+    $desc = $_POST['exp_description'];
     $date = $_POST['date'];
 
     // Insert expense
-    $insertsql = "INSERT INTO incomes (user_id, category_id, amount,date, description) 
+    $insertsql = "INSERT INTO expenses (user_id, category_id, amount,date, description) 
                VALUES ('$user_id', '$category','$amount',  '$date','$desc')";
-               
+
     // Update user wallet
     if(mysqli_query($conn, $insertsql)) {
         // Update wallet if insert was successful
         $update_sql = "UPDATE wallet 
-                      SET cash_in_hand = cash_in_hand + $amount 
+                      SET cash_in_hand = cash_in_hand - $amount 
                       WHERE user_id = '$user_id'";
         
         if(mysqli_query($conn, $update_sql)) {

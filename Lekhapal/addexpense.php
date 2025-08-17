@@ -16,6 +16,7 @@
 
         <?php include 'header.php'; ?>
         <?php include 'sidebar.php'; ?>
+        <?php include 'dbconnection.php';?>
 
         <!--main start-->
         <main>
@@ -25,7 +26,7 @@
             <div class="form-container">
             <div class="addexpense">
                 <div class="expense-title">Add Expenses</div>
-                <form action="" method="post">
+                <form action="addexpenseProcess.php" method="post">
                     <div class="form-group">
                     <label>Amount</label>
                     <input type="text" id="expense_amt" name="expense_amt">
@@ -33,20 +34,22 @@
 
                     <div class="form-group">
                     <label>Category</label>
-                    <select name="expense" id="expense" required>
+                    <select name="exp_category" id="exp_category" required>
                         <option value="">--Select--</Option>
-                        <option value="">Rent</option>
-                        <option value="">Grocery</option>
-                        <option value="">Shopping</option>
-                        <option value="">Bill Sharing</option>
-                        <option value="">Lend</option>
-                        <option value="">Other</option>
+                        <?php
+                        $sql = "SELECT * FROM expense_categories";
+                        $result = mysqli_query($conn, $sql);
+
+                        while($row = mysqli_fetch_assoc($result)) {
+                            echo "<option value='{$row['id']}'>{$row['name']}</option>";
+                        }
+                        ?>
                     </select>
                     </div>
 
                     <div class="form-group">
                     <label>Description</label>
-                    <textarea id="expense_desc" name="expense_desc" rows="4" cols="12" required></textarea>
+                    <textarea id="exp_description" name="exp_description" rows="4" cols="12" required></textarea>
                     </div>
 
                     <div class="form-group">
