@@ -56,7 +56,7 @@
         <p>Already have an account?</p>
          <button
           class="btn register-btn"
-          onclick="location.href='login.html'">
+          onclick="location.href='login.php'">
           login
         </button>
       </div>
