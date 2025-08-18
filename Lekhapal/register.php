@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="login.css" />
 </head>
 <body>
+  <div class="container">
       <div class="form-box register">
         <form action="registrationInsert.php" method="post">
           <h1>Registration</h1>
@@ -40,11 +45,22 @@
             <i class="bx bxs-lock"></i>
           </div>
 
-          <div id="error-message" style="color: red; margin-bottom: 10px"></div>
+          <div id="error-message" ></div>
 
           <input type="submit" class="btn" value="Register" /> 
         </form>
       </div>
-
+ <div class="LogoBox">
+      <div class="LogoBox-panel">
+        <h1>Welcome To Lekhapal!</h1>
+        <p>Already have an account?</p>
+         <button
+          class="btn register-btn"
+          onclick="location.href='login.html'">
+          login
+        </button>
+      </div>
+      </div>
+  </div>
 </body>
 </html>
