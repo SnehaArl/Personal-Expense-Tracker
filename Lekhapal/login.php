@@ -39,7 +39,7 @@
           <p>Dont have an account?</p>
           <button
             class="btn register-btn"
-            onclick="location.href='register.php'">
+            onclick="location.href='register.html'">
             Register
           </button>
         </div>
