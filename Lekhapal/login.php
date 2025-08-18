@@ -7,7 +7,7 @@
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet" />
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="introtest.css" />
   </head>
 
   <body>
@@ -39,7 +39,7 @@
           <p>Dont have an account?</p>
           <button
             class="btn register-btn"
-            onclick="location.href='register.html'">
+            onclick="location.href='register.php'">
             Register
           </button>
         </div>
