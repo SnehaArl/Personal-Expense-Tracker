@@ -33,6 +33,18 @@
         </form>
       </div>
 
+      <div class="LogoBox">
+        <div class="LogoBox-panel">
+          <h1>Welcome To Lekhapal!</h1>
+          <p>Dont have an account?</p>
+          <button
+            class="btn register-btn"
+            onclick="location.href='register.html'">
+            Register
+          </button>
+        </div>
+      </div>
+</div>
       
   </body>
 </html>
