@@ -16,7 +16,7 @@
             background-color: var(--clr-background);
             grid-area: main;
             display: grid;
-            grid-template-columns: 1fr 0.8fr 1fr;
+            grid-template-columns:  repeat(3,1fr);
             grid-template-rows: 0.2fr 1fr 1fr;
             grid-template-areas:
                 "top-bar top-bar top-bar"
