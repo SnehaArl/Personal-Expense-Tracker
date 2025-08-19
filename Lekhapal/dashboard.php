@@ -10,12 +10,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
         #dashboard-main {
             background-color: var(--clr-background);
             grid-area: main;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr 0.8fr 1fr;
             grid-template-rows: 0.2fr 1fr 1fr;
             grid-template-areas:
                 "top-bar top-bar top-bar"
@@ -66,6 +67,12 @@
             color: #000;
         }
 
+        .content2 span{
+            font-size: 7rem;
+            color: #d65804ff;
+            padding-top: 3rem;
+        }
+
         .content4 {
             grid-area: content4;
         }
@@ -101,7 +108,9 @@
                     ?>
                 </div>
             </div>
-            <div class="content2" style="color:#ffffff;"></div>
+            <div class="content2" style="color: #d65804ff;">
+                <span class="material-symbols-rounded">bar_chart_4_bars</span>
+            </div>
             <div class="content3">
                 <h2>Expense Added</h2>
                 <div id="expense-content">
@@ -124,7 +133,7 @@
                     ?>
                 </div>
                 </div>
-                <div class="content4" style="background-color: #000;color:#ffffff;">Image
+                <div class="content4" style="background-color: #ffffff;color:#000;">Image
                 </div>
         </main>
     </div>
