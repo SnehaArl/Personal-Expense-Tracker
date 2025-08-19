@@ -37,10 +37,6 @@
             text-align: center;
         }
 
-        .content1 h1 {
-            color: #000;
-        }
-
         .content2 {
             grid-area: content2;
             margin-bottom: 1rem;
@@ -57,12 +53,17 @@
             grid-area: content3;
             margin-bottom: 1rem;
             background-color: #ffffff;
+            color: #d65804ff;
             border-radius: 20px;
             border-radius: 20px;
             box-shadow: var(--clr-boxshadow);
             justify-content: center;
             align-items: center;
             text-align: center;
+        }
+        .content1 h1,
+        .content3 h1{
+            color: #000;
         }
 
         .content4 {
@@ -101,21 +102,27 @@
                 </div>
             </div>
             <div class="content2" style="color:#ffffff;"></div>
-            <div class="content3" style="color: #d65804ff;">
+            <div class="content3">
                 <h2>Expense Added</h2>
                 <div id="expense-content">
                     <?php
-                    $user_id = $_SESSION['user_id'];
-                    $sql = "SELECT amount FROM expenses WHERE user_id='$user_id' ORDER BY id DESC LIMIT 1";
-                    $result = mysqli_query($conn, $sql);
-
-                    if ($result && mysqli_num_rows($result) > 0) {
-                        $row = mysqli_fetch_assoc($result);
-                        echo "<h1>{$row['amount']}</h1>";
+                    if (isset($_SESSION['just_logged_in']) && $_SESSION['just_logged_in'] === true) {
+                        echo "<h1>0.00</h1>";
+                        $_SESSION['just_logged_in'] = false; // reset flag
                     } else {
-                        echo "<h1>0.00</h1>";  
+                        // Otherwise, show the most recent expense (after form submission)
+                        $sql = "SELECT amount FROM expenses WHERE user_id='$user_id' ORDER BY id DESC LIMIT 1";
+                        $result = mysqli_query($conn, $sql);
+
+                        if ($result && mysqli_num_rows($result) > 0) {
+                            $row = mysqli_fetch_assoc($result);
+                            echo "<h1>{$row['amount']}</h1>";
+                        } else {
+                            echo "<h1>0.00</h1>";
+                        }
                     }
                     ?>
+                </div>
                 </div>
                 <div class="content4" style="background-color: #000;color:#ffffff;">Image
                 </div>

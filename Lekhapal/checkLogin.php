@@ -21,6 +21,7 @@
             //stores user_id and username in session variable
             $_SESSION['user_id']=$user_id; 
             $_SESSION['username']=$uname; 
+            $_SESSION['just_logged_in'] = true;
             header("Location: dashboard.php"); 
         }
         else{
