@@ -10,45 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <style>
-        #balance-content {
-            margin-top: 15px;
-        }
-
-        #balance-content form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #balance-content label {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            ;
-            color: #34495e;
-        }
-
-        #balance-content input[type="text"] {
-            border-width: 1px;
-            border-radius: 8px;
-            padding: 0.5em;
-            width: 75%;
-            box-sizing: border-box;
-        }
-
-        #balance-content input[type="submit"] {
-            background-color: var(--clr-green);
-            color: var(--clr-white1);
-            border: none;
-            border-radius: 8px;
-            padding: 8px;
-            font-size: 0.95rem;
-            cursor: pointer;
-            width: 50%;
-        }
-    </style>
 </head>
 
 <body>
@@ -109,7 +70,7 @@
                 </div>
             </div>
 
-            <div class="content2" >
+            <div class="content2">
                 <h2>Income</h2>
                  <div id="income-content">
                     <?php

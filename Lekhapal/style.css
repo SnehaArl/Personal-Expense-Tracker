@@ -319,7 +319,43 @@ main #menu {
     font-weight: 600;
     color: #d65804ff;
 }
+ #balance-content {
+            margin-top: 15px;
+        }
 
+        #balance-content form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #balance-content label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            ;
+            color: #34495e;
+        }
+
+        #balance-content input[type="text"] {
+            border-width: 1px;
+            border-radius: 8px;
+            padding: 0.5em;
+            width: 75%;
+            box-sizing: border-box;
+        }
+
+        #balance-content input[type="submit"] {
+            background-color: var(--clr-green);
+            color: var(--clr-white1);
+            border: none;
+            border-radius: 8px;
+            padding: 8px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            width: 50%;
+        }
 .content2 {
     grid-area: content2;
     margin-bottom: 1rem;
