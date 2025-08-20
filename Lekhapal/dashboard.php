@@ -88,10 +88,15 @@
         <main id="dashboard-main">
             <div class="top-bar">
                 <span id="menu" class="material-symbols-sharp" onclick='openSidebar()'>menu</span>
-              <!--  <span id="filter">
-                    <select name="filter" id="filter-select">
-                        <option value="today">Today</option>
-                </span>-->
+              
+                 <form method="get" action="">
+        <label>Show Report:</label>
+        <select name="filter" onchange="this.form.submit()">
+            <option value="all" <?php if(!isset($_GET['filter']) || $_GET['filter']=='all') echo 'selected'; ?>>All Time</option>
+            <option value="month" <?php if(isset($_GET['filter']) && $_GET['filter']=='month') echo 'selected'; ?>>This Month</option>
+            <option value="week" <?php if(isset($_GET['filter']) && $_GET['filter']=='week') echo 'selected'; ?>>This Week</option>
+        </select>
+    </form>
             </div>
 
             <div class="content1">

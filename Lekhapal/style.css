@@ -1,10 +1,10 @@
 :root {
     --clr-green: #4ca771;
     --clr-background: #edefef;
-    --clr-white2:#fefbfb;
+    --clr-white2: #fefbfb;
     --clr-white1: #fffafa;
     --header-height: 0.3fr;
-    --clr-boxshadow:0 10px 30px rgba(0, 0, 0, 0.1);
+    --clr-boxshadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -48,6 +48,7 @@ h3 {
     font-size: 0.87rem;
     font-weight: 500;
 }
+
 /*header section css start */
 header {
     background-color: var(--clr-green);
@@ -57,42 +58,45 @@ header {
     justify-content: center;
     align-items: center;
     padding: 0 12px;
-    gap:50rem;
+    gap: 50rem;
 }
-header .lekhapal{
+
+header .lekhapal {
     color: var(--clr-white1);
-    padding-left: 0.5rem;   
+    padding-left: 0.5rem;
 }
+
 header .profile {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    gap:0.8rem;
-    color:#fffafa;
+    gap: 0.8rem;
+    color: #fffafa;
 }
+
 /* header section css end*/
 
 /* aside section css  start  */
 #aside {
     background-color: var(--clr-white1);
     grid-area: aside;
-    border-right:2px solid #4ca771
+    border-right: 2px solid #4ca771
 }
 
 aside .top {
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     align-items: center;
     min-height: 3rem;
     width: 100%;
-    position:relative;
+    position: relative;
 }
 
 aside .top #menuopen {
     display: block;
     font-size: 2rem;
     margin-right: 3rem;
-    margin-left:1rem;
+    margin-left: 1rem;
 }
 
 aside .top #close {
@@ -112,7 +116,7 @@ aside .top #close {
     width: 100%;
     display: flex;
     color: #000;
-    margin-left:4%;
+    margin-left: 4%;
     align-items: center;
     height: 3.1rem;
     text-decoration: none;
@@ -142,33 +146,35 @@ aside .top #close {
     font-size: 1.75rem;
 }
 
-#aside .top::after{
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            height: 4px;
-            background-color: var(--clr-green);
-            border-radius: 4px;
-        }
-
-.sidebar a:nth-child(5) {
-    position: relative; /* so ::before is positioned relative to this link */
-}
-
-.sidebar a:nth-child(5)::before { 
+#aside .top::after {
     content: '';
     position: absolute;
-    left:50%;
-    top: -8px; 
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 4px;
+    background-color: var(--clr-green);
+    border-radius: 4px;
+}
+
+.sidebar a:nth-child(5) {
+    position: relative;
+    /* so ::before is positioned relative to this link */
+}
+
+.sidebar a:nth-child(5)::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -8px;
     transform: translateX(-55%);
     width: 90%;
     height: 4px;
     background-color: var(--clr-green);
     border-radius: 4px;
 }
+
 /* aside section css end  */
 
 /*main section css start*/
@@ -178,95 +184,103 @@ main {
     grid-area: main;
     display: flex;
     flex-direction: column;
-    min-height: calc(100vh - 0.3fr); 
+    min-height: calc(100vh - 0.3fr);
     padding: 10px;
     box-sizing: border-box;
 }
-main .top-bar {
-    display: flex;
-    justify-content: flex-start; 
+
+#dashboard-main {
+    background-color: var(--clr-background);
+    grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 0.2fr 1fr 1fr;
+    grid-template-areas:
+        "menu-bar top-bar top-bar"
+        "content1 content2 content3"
+        "content4 content4 content4";
+    grid-gap: 1rem;
+    padding: 2rem;
 }
+
+main .top-bar {
+    grid-area: top-bar;
+    display: flex;
+    justify-content: start;
+}
+
 main #menu {
     margin: 10px;
     display: none;
 }
-#dashboard-main {
-            background-color: var(--clr-background);
-            grid-area: main;
-            display: grid;
-            grid-template-columns:  repeat(3,1fr);
-            grid-template-rows: 0.2fr 1fr 1fr;
-            grid-template-areas:
-                "top-bar top-bar top-bar"
-                "content1 content2 content3"
-                "content4 content4 content4";
-            grid-gap: 1rem;
-            padding: 2rem;
-        }
 
-        .content1 {
-            grid-area: content1;
-            margin-bottom: 1rem;
-            background-color: #ffffff;
-            color: #d65804ff;
-            border-radius: 20px;
-            box-shadow: var(--clr-boxshadow);
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+.content1 {
+    grid-area: content1;
+    margin-bottom: 1rem;
+    background-color: #ffffff;
+    color: #d65804ff;
+    border-radius: 20px;
+    box-shadow: var(--clr-boxshadow);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
-        .content2 {
-            grid-area: content2;
-            margin-bottom: 1rem;
-            background-color: #ffffff;
-            border-radius: 20px;
-            border-radius: 20px;
-            box-shadow: var(--clr-boxshadow);
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+.content2 {
+    grid-area: content2;
+    margin-bottom: 1rem;
+    background-color: #ffffff;
+    border-radius: 20px;
+    border-radius: 20px;
+    box-shadow: var(--clr-boxshadow);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
-        .content3 {
-            grid-area: content3;
-            margin-bottom: 1rem;
-            background-color: #ffffff;
-            color: #d65804ff;
-            border-radius: 20px;
-            border-radius: 20px;
-            box-shadow: var(--clr-boxshadow);
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        .content1 h1,
-        .content3 h1{
-            color: #000;
-        }
+.content3 {
+    grid-area: content3;
+    margin-bottom: 1rem;
+    background-color: #ffffff;
+    color: #d65804ff;
+    border-radius: 20px;
+    border-radius: 20px;
+    box-shadow: var(--clr-boxshadow);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
-        .content2 span{
-            font-size: 7rem;
-            color: #d65804ff;
-            padding-top: 3rem;
-        }
+.content1 h1,
+.content3 h1 {
+    color: #000;
+}
 
-        .content4 {
-            grid-area: content4;
-        }
+.content2 span {
+    font-size: 7rem;
+    color: #d65804ff;
+    padding-top: 3rem;
+}
+
+.content4 {
+    grid-area: content4;
+}
+
 main .form-container {
-    flex: 1; /* takes remaining height */
+    flex: 1;
+    /* takes remaining height */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
 }
+
 main .addexpense {
     padding: 15px;
     max-width: 380px;
     width: 100%;
     background-color: var(--clr-white2);
-    border:1px solid #000;
+    border: 1px solid #000;
     box-shadow: var(--clr-boxshadow);
     box-sizing: border-box;
     border-radius: 8px;
@@ -315,16 +329,18 @@ main .addincome {
     max-width: 380px;
     width: 100%;
     background-color: var(--clr-white2);
-    border:1px solid #000;
+    border: 1px solid #000;
     box-shadow: var(--clr-boxshadow);
     box-sizing: border-box;
     border-radius: 8px;
 }
+
 main .addincome .income-title {
     font-size: 1.2rem;
     margin-bottom: 8px;
     text-align: center;
 }
+
 .addincome #addinc-btn {
     background-color: var(--clr-green);
     color: var(--clr-white1);
@@ -347,22 +363,31 @@ main .addincome .income-title {
             "main";
     }
 
-    aside .top{
-        display:flex;
+    aside .top {
+        display: flex;
         justify-content: flex-end;
         align-items: center;
     }
-    aside .top #menuopen{
-        display:none;
+
+    aside .top #menuopen {
+        display: none;
     }
-    aside .top #menutitle{
-        display:none;
+
+    aside .top #menutitle {
+        display: none;
     }
-    aside .top #close{
+
+    aside .top #close {
         font-size: 2rem;
-        margin-left:25px;
-        display:block;
+        margin-left: 25px;
+        display: block;
     }
+
+    main{
+        display:flex;
+        flex-wrap: wrap;
+    }
+
     main #menu {
         display: block;
     }
@@ -378,7 +403,7 @@ main .addincome .income-title {
         transition: left 0.3s ease;
     }
 
-    #aside h3{
+    #aside h3 {
         font-size: 1rem;
     }
 
