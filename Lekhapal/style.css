@@ -283,7 +283,7 @@ main .addincome .income-title {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 0.2fr 1fr 1fr;
     grid-template-areas:
-        "menu-bar top-bar top-bar"
+        "top-bar top-bar top-bar"
         "content1 content2 content3"
         "content4 content5 content5";
     grid-gap: 1rem;
@@ -300,6 +300,7 @@ main #menu {
     margin: 10px;
     display: none;
 }
+
 
 .content1 {
     grid-area: content1;
