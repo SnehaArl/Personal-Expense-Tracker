@@ -190,6 +190,70 @@ main #menu {
     margin: 10px;
     display: none;
 }
+#dashboard-main {
+            background-color: var(--clr-background);
+            grid-area: main;
+            display: grid;
+            grid-template-columns:  repeat(3,1fr);
+            grid-template-rows: 0.2fr 1fr 1fr;
+            grid-template-areas:
+                "top-bar top-bar top-bar"
+                "content1 content2 content3"
+                "content4 content4 content4";
+            grid-gap: 1rem;
+            padding: 2rem;
+        }
+
+        .content1 {
+            grid-area: content1;
+            margin-bottom: 1rem;
+            background-color: #ffffff;
+            color: #d65804ff;
+            border-radius: 20px;
+            box-shadow: var(--clr-boxshadow);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .content2 {
+            grid-area: content2;
+            margin-bottom: 1rem;
+            background-color: #ffffff;
+            border-radius: 20px;
+            border-radius: 20px;
+            box-shadow: var(--clr-boxshadow);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .content3 {
+            grid-area: content3;
+            margin-bottom: 1rem;
+            background-color: #ffffff;
+            color: #d65804ff;
+            border-radius: 20px;
+            border-radius: 20px;
+            box-shadow: var(--clr-boxshadow);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .content1 h1,
+        .content3 h1{
+            color: #000;
+        }
+
+        .content2 span{
+            font-size: 7rem;
+            color: #d65804ff;
+            padding-top: 3rem;
+        }
+
+        .content4 {
+            grid-area: content4;
+        }
 main .form-container {
     flex: 1; /* takes remaining height */
     display: flex;
