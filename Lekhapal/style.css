@@ -80,7 +80,7 @@ header .profile {
 #aside {
     background-color: var(--clr-white1);
     grid-area: aside;
-    border-right: 2px solid #4ca771
+    border-right: 2px solid #4ca771;
 }
 
 aside .top {
