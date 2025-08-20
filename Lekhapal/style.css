@@ -366,6 +366,10 @@ main #menu {
     align-items: center;
     text-align: center;
 }
+.content4 #wallet-content {
+    font-size: 1.2rem;
+    color: #000;
+}
 
 .content5 {
     grid-area: content5;

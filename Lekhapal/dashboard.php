@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
-        #balance-content {
+    #balance-content {
     margin-top: 15px;
 }
 
@@ -106,9 +106,23 @@
                   
                 </div>
             </div>
-            <div class="content4" style="background-color: #ffffff;color: #d65804ff;;">
+            <div class="content4" style="background-color: #ffffff;color: #d65804ff;">
                 <h2>Wallet</h2>
                 <div id="wallet-content">
+                     <?php
+                    $user_id = $_SESSION['user_id'];
+                    $sql = "SELECT cash_in_hand FROM wallet WHERE user_id='$user_id'";
+                    $result = mysqli_query($conn, $sql);
+
+                    if ($result && mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<h1> {$row['cash_in_hand']}</h1>";
+                        }
+                    } else {
+                        echo "<p>No wallet data found</p>";
+                    }
+                    ?>
+
                 </div>      
             </div>
 

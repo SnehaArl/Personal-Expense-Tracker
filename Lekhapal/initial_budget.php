@@ -11,10 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($conn, $check);
 
     if (mysqli_num_rows($result) > 0) {
-        // Wallet exists → update
         $sql = "UPDATE wallet SET cash_in_hand = $initial_budget WHERE user_id = '$user_id'";
     } else {
-        // Wallet doesn’t exist → insert
         $sql = "INSERT INTO wallet (user_id, cash_in_hand) VALUES ('$user_id', $initial_budget)";
     }
 
