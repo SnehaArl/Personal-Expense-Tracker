@@ -264,6 +264,15 @@ main #menu {
 
 .content4 {
     grid-area: content4;
+    grid-area: content1;
+    margin-bottom: 1rem;
+    background-color: #ffffff;
+    color: #d65804ff;
+    border-radius: 20px;
+    box-shadow: var(--clr-boxshadow);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .content5 {
