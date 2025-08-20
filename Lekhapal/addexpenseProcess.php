@@ -20,6 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Check if current balance is sufficient
         if ($current_balance < $amount) {
             echo "Error: Not enough balance in wallet!";
+            exit();
         }
     // Insert expense
     $insertsql = "INSERT INTO expenses (user_id, category_id, amount,date, description) 
