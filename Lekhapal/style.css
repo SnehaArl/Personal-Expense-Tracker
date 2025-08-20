@@ -313,6 +313,12 @@ main #menu {
     text-align: center;
 }
 
+.content1 h3 {
+    font-size:1.3rem;
+    font-weight: 600;
+    color: #d65804ff;
+}
+
 .content2 {
     grid-area: content2;
     margin-bottom: 1rem;

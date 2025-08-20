@@ -11,6 +11,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        #balance-content {
+    margin-top: 15px;
+}
+
+#balance-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+#balance-content label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;;
+    color: #34495e;
+}
+
+#balance-content input[type="text"] {
+   border-width: 1px;
+    border-radius: 8px;
+    padding: 0.5em;
+    width: 75%;
+    box-sizing: border-box;
+}
+
+#balance-content input[type="submit"]{
+    background-color: var(--clr-green);
+    color: var(--clr-white1);
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    width:50%;
+}
+</style>
 </head>
 
 <body>
@@ -49,53 +87,33 @@
 
 
             <div class="content1">
-                <h2>Wallet</h2>
-                <div id="wallet-content">
-                    <?php
-                    $user_id = $_SESSION['user_id'];
-                    $sql = "SELECT cash_in_hand FROM wallet WHERE user_id='$user_id'";
-                    $result = mysqli_query($conn, $sql);
-
-                    if ($result && mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            echo "<h1> {$row['cash_in_hand']}</h1>";
-                        }
-                    } else {
-                        echo "<p>No wallet data found</p>";
-                    }
-                    ?>
+                <h3>Add Initial Balance</h3>
+                <div id="balance-content">
+                    <label>Balance amount:</label>
+                    <form action="initial_budget.php" method="post">
+                        <input type="text" name="initialBudget" required>
+                        <input type="submit" value="Set budget">
+                    </form>
                 </div>
             </div>
+
             <div class="content2" style="color: #d65804ff;">
                 <h2>Income</h2>
             </div>
             <div class="content3">
-                <h2>Expense Added</h2>
+                <h2>Expense</h2>
                 <div id="expense-content">
-                    <?php
-                    if (isset($_SESSION['just_logged_in']) && $_SESSION['just_logged_in'] === true) {
-                        echo "<h1>0.00</h1>";
-                        $_SESSION['just_logged_in'] = false; // reset flag
-                    } else {
-                        // Otherwise, show the most recent expense (after form submission)
-                        $sql = "SELECT amount FROM expenses WHERE user_id='$user_id' ORDER BY id DESC LIMIT 1";
-                        $result = mysqli_query($conn, $sql);
-
-                        if ($result && mysqli_num_rows($result) > 0) {
-                            $row = mysqli_fetch_assoc($result);
-                            echo "<h1>{$row['amount']}</h1>";
-                        } else {
-                            echo "<h1>0.00</h1>";
-                        }
-                    }
-                    ?>
+                  
                 </div>
             </div>
-            <div class="content4" style="background-color: #ffffff;color:#000;">Wallet
+            <div class="content4" style="background-color: #ffffff;color: #d65804ff;;">
+                <h2>Wallet</h2>
+                <div id="wallet-content">
+                </div>      
             </div>
 
-            <div class="content5" style="background-color: #ffffff;color:#000;">Image
-            </div>
+                <div class="content5" style="background-color: #ffffff;color: #d65804ff;">Image
+                </div>
         </main>
     </div>
 </body>
