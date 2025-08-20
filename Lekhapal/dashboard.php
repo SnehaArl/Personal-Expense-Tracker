@@ -12,43 +12,44 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
-    #balance-content {
-    margin-top: 15px;
-}
+        #balance-content {
+            margin-top: 15px;
+        }
 
-#balance-content form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    justify-content: center;
-    align-items: center;
-}
+        #balance-content form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
 
-#balance-content label {
-    font-weight: 600;
-    margin-bottom: 0.5rem;;
-    color: #34495e;
-}
+        #balance-content label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            ;
+            color: #34495e;
+        }
 
-#balance-content input[type="text"] {
-   border-width: 1px;
-    border-radius: 8px;
-    padding: 0.5em;
-    width: 75%;
-    box-sizing: border-box;
-}
+        #balance-content input[type="text"] {
+            border-width: 1px;
+            border-radius: 8px;
+            padding: 0.5em;
+            width: 75%;
+            box-sizing: border-box;
+        }
 
-#balance-content input[type="submit"]{
-    background-color: var(--clr-green);
-    color: var(--clr-white1);
-    border: none;
-    border-radius: 8px;
-    padding: 8px;
-    font-size: 0.95rem;
-    cursor: pointer;
-    width:50%;
-}
-</style>
+        #balance-content input[type="submit"] {
+            background-color: var(--clr-green);
+            color: var(--clr-white1);
+            border: none;
+            border-radius: 8px;
+            padding: 8px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            width: 50%;
+        }
+    </style>
 </head>
 
 <body>
@@ -76,13 +77,24 @@
 
             $condition = "";
             if ($filter == "today") {
-                $condition = "AND DATE(date) = CURDATE()";
+                $condition = "AND date = CURDATE()";
             }
             if ($filter == "week") {
                 $condition = "AND YEARWEEK(date) = YEARWEEK(CURDATE())";
             } elseif ($filter == "month") {
                 $condition = "AND YEAR(date) = YEAR(CURDATE()) AND MONTH(date) = MONTH(CURDATE())";
             }
+
+            $sql_income = "SELECT SUM(amount) AS total_income FROM incomes WHERE user_id='$user_id' $condition";
+            $res_income = mysqli_query($conn, $sql_income);
+            $row_income = mysqli_fetch_assoc($res_income);
+            $total_income = $row_income['total_income'] ?? 0;
+
+            $sql_expense = "SELECT SUM(amount) AS total_expense FROM expenses WHERE user_id='$user_id' $condition";
+            $res_expense = mysqli_query($conn, $sql_expense);
+            $row_expense = mysqli_fetch_assoc($res_expense);
+            $total_expense = $row_expense['total_expense'] ?? 0;
+
             ?>
 
 
@@ -103,13 +115,13 @@
             <div class="content3">
                 <h2>Expense</h2>
                 <div id="expense-content">
-                  
+
                 </div>
             </div>
             <div class="content4" style="background-color: #ffffff;color: #d65804ff;">
                 <h2>Wallet</h2>
                 <div id="wallet-content">
-                     <?php
+                    <?php
                     $user_id = $_SESSION['user_id'];
                     $sql = "SELECT cash_in_hand FROM wallet WHERE user_id='$user_id'";
                     $result = mysqli_query($conn, $sql);
@@ -123,11 +135,11 @@
                     }
                     ?>
 
-                </div>      
+                </div>
             </div>
 
-                <div class="content5" style="background-color: #ffffff;color: #d65804ff;">Image
-                </div>
+            <div class="content5" style="background-color: #ffffff;color: #d65804ff;">Image
+            </div>
         </main>
     </div>
 </body>
