@@ -198,7 +198,7 @@ main {
     grid-template-areas:
         "menu-bar top-bar top-bar"
         "content1 content2 content3"
-        "content4 content4 content4";
+        "content4 content5 content5";
     grid-gap: 1rem;
     padding: 2rem;
 }
@@ -264,6 +264,10 @@ main #menu {
 
 .content4 {
     grid-area: content4;
+}
+
+.content5 {
+    grid-area: content5;
 }
 
 main .form-container {

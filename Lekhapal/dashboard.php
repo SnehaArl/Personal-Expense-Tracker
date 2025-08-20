@@ -91,7 +91,10 @@
                     ?>
                 </div>
             </div>
-            <div class="content4" style="background-color: #ffffff;color:#000;">Image
+            <div class="content4" style="background-color: #ffffff;color:#000;">Wallet
+            </div>
+
+            <div class="content5" style="background-color: #ffffff;color:#000;">Image
             </div>
         </main>
     </div>
