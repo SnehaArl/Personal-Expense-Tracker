@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // to check current balance
     $check_sql = "SELECT cash_in_hand FROM wallet WHERE user_id = '$user_id'";
-    $chech_result = mysqli_query($conn, $check_sql);
+    $check_result = mysqli_query($conn, $check_sql);
 
     if ($check_result && mysqli_num_rows($check_result) > 0) {
         $row = mysqli_fetch_assoc($check_result);
