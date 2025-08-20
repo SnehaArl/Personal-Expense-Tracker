@@ -350,12 +350,6 @@ main #menu {
     color: #000;
 }
 
-.content2 span {
-    font-size: 7rem;
-    color: #d65804ff;
-    padding-top: 3rem;
-}
-
 .content4 {
     grid-area: content4;
     margin-bottom: 1rem;
