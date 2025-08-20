@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,6 +72,7 @@
             </div>
 
             <?php
+            $user_id = $_SESSION['user_id'];
             $filter = $_GET['filter'] ?? 'current'; //if exists uses its value else default: current
 
             $condition = "";
@@ -84,15 +84,15 @@
             } elseif ($filter == "month") {
                 $condition = "AND YEAR(date) = YEAR(CURDATE()) AND MONTH(date) = MONTH(CURDATE())";
             }
-
+            
             $sql_income = "SELECT SUM(amount) AS total_income FROM incomes WHERE user_id='$user_id' $condition";
-            $res_income = mysqli_query($conn, $sql_income);
-            $row_income = mysqli_fetch_assoc($res_income);
+            $result_income = mysqli_query($conn, $sql_income);
+            $row_income = mysqli_fetch_assoc($result_income);
             $total_income = $row_income['total_income'] ?? 0;
 
             $sql_expense = "SELECT SUM(amount) AS total_expense FROM expenses WHERE user_id='$user_id' $condition";
-            $res_expense = mysqli_query($conn, $sql_expense);
-            $row_expense = mysqli_fetch_assoc($res_expense);
+            $result_expense = mysqli_query($conn, $sql_expense);
+            $row_expense = mysqli_fetch_assoc($result_expense);
             $total_expense = $row_expense['total_expense'] ?? 0;
 
             ?>
@@ -109,20 +109,31 @@
                 </div>
             </div>
 
-            <div class="content2" style="color: #d65804ff;">
+            <div class="content2" >
                 <h2>Income</h2>
+                 <div id="income-content">
+                    <?php
+                    if ($total_income >= 0) {
+                        echo "<h1> $total_income</h1>";
+                    }
+                    ?>
+                 </div>
             </div>
             <div class="content3">
                 <h2>Expense</h2>
                 <div id="expense-content">
-
+                    <?php
+                    if ($total_expense >= 0) {
+                        echo "<h1> $total_expense</h1>";
+                    }
+                    ?>
                 </div>
             </div>
             <div class="content4" style="background-color: #ffffff;color: #d65804ff;">
                 <h2>Wallet</h2>
                 <div id="wallet-content">
                     <?php
-                    $user_id = $_SESSION['user_id'];
+                    //$user_id = $_SESSION['user_id'];
                     $sql = "SELECT cash_in_hand FROM wallet WHERE user_id='$user_id'";
                     $result = mysqli_query($conn, $sql);
 

@@ -323,6 +323,7 @@ main #menu {
     grid-area: content2;
     margin-bottom: 1rem;
     background-color: #ffffff;
+    color: #d65804ff;
     border-radius: 20px;
     border-radius: 20px;
     box-shadow: var(--clr-boxshadow);
@@ -345,6 +346,7 @@ main #menu {
 }
 
 .content1 h1,
+.content2 h1,
 .content3 h1 {
     color: #000;
 }
@@ -366,6 +368,8 @@ main #menu {
     align-items: center;
     text-align: center;
 }
+.content3 #income-content,
+.content4 #expense-content,
 .content4 #wallet-content {
     font-size: 1.2rem;
     color: #000;
