@@ -88,10 +88,10 @@
         <main id="dashboard-main">
             <div class="top-bar">
                 <span id="menu" class="material-symbols-sharp" onclick='openSidebar()'>menu</span>
-                <span id="filter">
+              <!--  <span id="filter">
                     <select name="filter" id="filter-select">
                         <option value="today">Today</option>
-                </span>
+                </span>-->
             </div>
 
             <div class="content1">
