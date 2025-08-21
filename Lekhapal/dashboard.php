@@ -25,6 +25,7 @@
                 <form method="get" action="">
                     <label>Display:</label>
                     <select name="filter" onchange="this.form.submit()">
+                        <option value="" selected disabled>--Select--</Option>
                         <option value="today" <?php if (!isset($_GET['filter']) || $_GET['filter'] == 'today') echo 'selected'; ?>>Today</option>
                         <option value="month" <?php if (isset($_GET['filter']) && $_GET['filter'] == 'month') echo 'selected'; ?>>This Month</option>
                         <option value="week" <?php if (isset($_GET['filter']) && $_GET['filter'] == 'week') echo 'selected'; ?>>This Week</option>
@@ -71,7 +72,7 @@
             </div>
 
             <div class="content2">
-                <h2>Income</h2>
+                <h2>Total Income</h2>
                  <div id="income-content">
                     <?php
                     if ($total_income >= 0) {
@@ -81,7 +82,7 @@
                  </div>
             </div>
             <div class="content3">
-                <h2>Expense</h2>
+                <h2>Total Expense</h2>
                 <div id="expense-content">
                     <?php
                     if ($total_expense >= 0) {
@@ -90,7 +91,7 @@
                     ?>
                 </div>
             </div>
-            <div class="content4" style="background-color: #ffffff;color: #d65804ff;">
+            <div class="content4" >
                 <h2>Wallet</h2>
                 <div id="wallet-content">
                     <?php
