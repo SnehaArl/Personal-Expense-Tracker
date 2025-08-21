@@ -18,6 +18,7 @@ if (mysqli_query($conn, $sql)) {
     $walletsql = "INSERT INTO wallet (user_id, cash_in_hand) VALUES ('$user_id', 0)";
     mysqli_query($conn, $walletsql);
     header("Location:login.php");
+    exit();
 }
  else {
     echo "<p style='color:red'>Error: " . mysqli_error($conn) . "</p>";

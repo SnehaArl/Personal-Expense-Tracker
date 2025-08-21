@@ -22,6 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         if(mysqli_query($conn, $update_sql)) {
             header("Location: dashboard.php");
+            exit();
         } else {
             echo "Error updating wallet: " . mysqli_error($conn);
         }
@@ -29,6 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         echo "Error adding income: " . mysqli_error($conn);
     }
     header("Location: dashboard.php");
+    exit();
 }
 
 ?>

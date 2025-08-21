@@ -23,6 +23,7 @@
             $_SESSION['username']=$uname; 
             $_SESSION['just_logged_in'] = true;
             header("Location: dashboard.php"); 
+            exit();
         }
         else{
 
