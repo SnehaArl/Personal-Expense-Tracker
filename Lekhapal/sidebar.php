@@ -51,7 +51,7 @@
                 <h3>Log Out</h3>
                  </a>
 
-                <a href="#">
+                <a href="contact.php">
                 <span class="material-symbols-sharp">contact_support</span>
                 <h3>Contact Us</h3>
                  </a>

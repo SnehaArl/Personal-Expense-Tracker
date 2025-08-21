@@ -362,7 +362,7 @@ main #menu {
     grid-area: content2;
     margin-bottom: 1rem;
     background-color: #ffffff;
-    color: var(--clr-purple);
+    color: var(--clr-orange);
     border-radius: 20px;
     border-radius: 20px;
     box-shadow: var(--clr-boxshadow);
@@ -387,6 +387,7 @@ main #menu {
 .content2 h1,
 .content3 h1 {
     color: #000;
+    font-weight: 600;
 }
 
 .content4 {
@@ -407,10 +408,27 @@ main #menu {
     font-size: 1.2rem;
     color: #000;
 }
+.content4 h1 {
+    margin-top: 2rem;;
+    color: #000;
+    font-weight: 600;
+}
 
 .content5 {
     grid-area: content5;
+    background-color: #ffffff;
+    margin-bottom: 0.5rem;
+    color: var(--clr-purple);
+    border-radius: 20px;
+    box-shadow: var(--clr-boxshadow);
+    margin-left: 1.5rem;
+    overflow: hidden;
 }
+.content5 img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
 
 /*main section css end*/
 
@@ -451,6 +469,23 @@ main #menu {
     main #menu {
         display: block;
     }
+
+     #dashboard-main {
+    background-color: var(--clr-background);
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 0.2fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr;
+    grid-template-areas:
+        "top-bar "
+        "content1" 
+        "content2"
+        "content3"
+        "content4"
+        "content5";
+    grid-gap: 1rem;
+    padding: 2rem;
+     }
 
     aside {
         position: fixed;
