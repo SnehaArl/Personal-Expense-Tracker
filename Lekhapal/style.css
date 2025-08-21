@@ -181,104 +181,7 @@ aside .top #close {
 
 /*main section css start*/
 
-main {
-    background-color: var(--clr-background);
-    grid-area: main;
-    display: flex;
-    flex-direction: column;
-    min-height: calc(100vh - 0.3fr);
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-
-main .form-container {
-    flex: 1;
-    /* takes remaining height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-main .addexpense {
-    padding: 15px;
-    max-width: 380px;
-    width: 100%;
-    background-color: var(--clr-white2);
-    border: 1px solid #000;
-    box-shadow: var(--clr-boxshadow);
-    box-sizing: border-box;
-    border-radius: 8px;
-}
-
-main .addexpense .expense-title {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-    text-align: center;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 8px;
-    font-size: 0.95rem;
-}
-
-.form-group label {
-    margin-bottom: 3px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    border-width: 1px;
-    border-radius: 8px;
-    padding: 0.5em;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.addexpense #addexp-btn {
-    background-color: var(--clr-green);
-    color: var(--clr-white1);
-    border: none;
-    border-radius: 8px;
-    padding: 8px;
-    font-size: 0.95rem;
-    cursor: pointer;
-    translate: 100%;
-}
-
-main .addincome {
-    padding: 15px;
-    max-width: 380px;
-    width: 100%;
-    background-color: var(--clr-white2);
-    border: 1px solid #000;
-    box-shadow: var(--clr-boxshadow);
-    box-sizing: border-box;
-    border-radius: 8px;
-}
-
-main .addincome .income-title {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-    text-align: center;
-}
-
-.addincome #addinc-btn {
-    background-color: var(--clr-green);
-    color: var(--clr-white1);
-    border: none;
-    border-radius: 8px;
-    padding: 8px;
-    font-size: 0.95rem;
-    cursor: pointer;
-    translate: 100%;
-}
-
- #dashboard-main {
+#dashboard-main {
     background-color: var(--clr-background);
     grid-area: main;
     display: grid;
@@ -292,13 +195,13 @@ main .addincome .income-title {
     padding: 2rem;
 }
 
-main .top-bar {
+#dashboard-main .top-bar {
     grid-area: top-bar;
     display: flex;
     justify-content: flex-start;
 }
 
-main #menu {
+#dashboard-main #menu {
     margin: 10px;
     display: none;
 }
@@ -317,47 +220,49 @@ main #menu {
 }
 
 .content1 h3 {
-    font-size:1.3rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: #d65804ff;
 }
- #balance-content {
-            margin-top: 15px;
-        }
 
-        #balance-content form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            justify-content: center;
-            align-items: center;
-        }
+#balance-content {
+    margin-top: 15px;
+}
 
-        #balance-content label {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            ;
-            color: #34495e;
-        }
+#balance-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
 
-        #balance-content input[type="text"] {
-            border-width: 1px;
-            border-radius: 8px;
-            padding: 0.5em;
-            width: 75%;
-            box-sizing: border-box;
-        }
+#balance-content label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    ;
+    color: #34495e;
+}
 
-        #balance-content input[type="submit"] {
-            background-color: var(--clr-green);
-            color: #ffffff;
-            border: none;
-            border-radius: 8px;
-            padding: 8px;
-            font-size: 0.95rem;
-            cursor: pointer;
-            width: 50%;
-        }
+#balance-content input[type="text"] {
+    border-width: 1px;
+    border-radius: 8px;
+    padding: 0.5em;
+    width: 75%;
+    box-sizing: border-box;
+}
+
+#balance-content input[type="submit"] {
+    background-color: var(--clr-green);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    width: 50%;
+}
+
 .content2 {
     grid-area: content2;
     margin-bottom: 1rem;
@@ -402,14 +307,17 @@ main #menu {
     align-items: center;
     text-align: center;
 }
+
 .content3 #income-content,
 .content4 #expense-content,
 .content4 #wallet-content {
     font-size: 1.2rem;
     color: #000;
 }
+
 .content4 h1 {
-    margin-top: 2rem;;
+    margin-top: 2rem;
+    ;
     color: #000;
     font-weight: 600;
 }
@@ -424,18 +332,130 @@ main #menu {
     margin-left: 1.5rem;
     overflow: hidden;
 }
+
 .content5 img {
-        max-width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+#main {
+    background-color: var(--clr-background);
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 0.3fr);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#main .top-bar {
+    grid-area: top-bar;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#main #menu {
+    margin: 10px;
+    display: none;
+}
+
+#main .form-container {
+    flex: 1;
+    /* takes remaining height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#main .addexpense {
+    padding: 15px;
+    max-width: 380px;
+    width: 100%;
+    background-color: var(--clr-white2);
+    border: 1px solid #000;
+    box-shadow: var(--clr-boxshadow);
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+#main .addexpense .expense-title {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.form-group label {
+    margin-bottom: 3px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    border-width: 1px;
+    border-radius: 8px;
+    padding: 0.5em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.addexpense #addexp-btn {
+    background-color: var(--clr-green);
+    color: var(--clr-white1);
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    translate: 100%;
+}
+
+#main .addincome {
+    padding: 15px;
+    max-width: 380px;
+    width: 100%;
+    background-color: var(--clr-white2);
+    border: 1px solid #000;
+    box-shadow: var(--clr-boxshadow);
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+#main .addincome .income-title {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.addincome #addinc-btn {
+    background-color: var(--clr-green);
+    color: var(--clr-white1);
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    translate: 100%;
+}
 
 /*main section css end*/
 
 @media only screen and (max-width:550px) {
+    body {
+    overflow-x: hidden;   /* stop sideways scroll only */
+    overflow-y: auto;     /* allow vertical scroll */
+}
     .container {
         grid-template-columns: 1fr;
-        grid-template-rows: 0.3fr 2.5fr;
+        grid-template-rows: auto auto;
         grid-template-areas:
             "header"
             "main";
@@ -461,31 +481,35 @@ main #menu {
         display: block;
     }
 
-    main{
-        display:flex;
+  /*  #main {
+        display: flex;
         flex-wrap: wrap;
-    }
+    }*/
 
-    main #menu {
+    #main #menu {
         display: block;
     }
 
-     #dashboard-main {
-    background-color: var(--clr-background);
-    grid-area: main;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.2fr 0.2fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr;
-    grid-template-areas:
-        "top-bar "
-        "content1" 
-        "content2"
-        "content3"
-        "content4"
-        "content5";
-    grid-gap: 1rem;
-    padding: 2rem;
-     }
+    #dashboard-main {
+        background-color: var(--clr-background);
+        grid-area: main;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "top-bar"
+            "content1"
+            "content2"
+            "content3"
+            "content4"
+            "content5";
+        grid-gap: 1rem;
+        padding: 2rem;
+    }
+
+    #dashboard-main #menu {
+        display: block;
+    }
 
     aside {
         position: fixed;
