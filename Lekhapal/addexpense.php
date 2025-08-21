@@ -26,7 +26,7 @@
             <div class="form-container">
             <div class="addexpense">
                 <div class="expense-title">Add Expenses</div>
-                <form action="addexpenseProcess.php" method="post">
+                <form id="addExpenseForm" action="addexpenseProcess.php" method="post">
                     <div class="form-group">
                     <label>Amount</label>
                     <input type="text" id="expense_amt" name="expense_amt">
