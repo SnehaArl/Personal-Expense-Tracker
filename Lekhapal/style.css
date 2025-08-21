@@ -481,6 +481,22 @@ aside .top #close {
         display: block;
     }
 
+     aside {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100vh;
+        overflow-x: hidden;
+        z-index: 1;
+        transition: left 0.3s ease;
+    }
+
+    #aside h3 {
+        font-size: 1rem;
+    }
+
+
   /*  #main {
         display: flex;
         flex-wrap: wrap;
@@ -509,21 +525,6 @@ aside .top #close {
 
     #dashboard-main #menu {
         display: block;
-    }
-
-    aside {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100vh;
-        overflow-x: hidden;
-        z-index: 1;
-        transition: left 0.3s ease;
-    }
-
-    #aside h3 {
-        font-size: 1rem;
-    }
-
+    }  
+   
 }
