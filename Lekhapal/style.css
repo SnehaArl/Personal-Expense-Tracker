@@ -4,6 +4,7 @@
     --clr-white2: #fefbfb;
     --clr-white1: #fffafa;
     --clr-orange: #d65804ff;
+    --clr-purple: #8165c2;
     --header-height: 0.3fr;
     --clr-boxshadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
@@ -348,7 +349,7 @@ main #menu {
         }
 
         #balance-content input[type="submit"] {
-            background-color: var(--clr-green);
+            background-color: var(--clr-purple);
             color: var(--clr-white1);
             border: none;
             border-radius: 8px;
@@ -361,7 +362,7 @@ main #menu {
     grid-area: content2;
     margin-bottom: 1rem;
     background-color: #ffffff;
-    color: #4265d6;
+    color: var(--clr-purple);
     border-radius: 20px;
     border-radius: 20px;
     box-shadow: var(--clr-boxshadow);
