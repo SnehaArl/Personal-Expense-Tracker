@@ -349,8 +349,8 @@ main #menu {
         }
 
         #balance-content input[type="submit"] {
-            background-color: var(--clr-purple);
-            color: var(--clr-white1);
+            background-color: var(--clr-green);
+            color: #ffffff;
             border: none;
             border-radius: 8px;
             padding: 8px;
@@ -392,7 +392,7 @@ main #menu {
 .content4 {
     grid-area: content4;
     background-color: #ffffff;
-    color: #d65804ff;
+    color: var(--clr-purple);
     border-radius: 20px;
     box-shadow: var(--clr-boxshadow);
     justify-content: center;
