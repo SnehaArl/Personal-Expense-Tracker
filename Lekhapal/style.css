@@ -3,6 +3,7 @@
     --clr-background: #edefef;
     --clr-white2: #fefbfb;
     --clr-white1: #fffafa;
+    --clr-orange: #d65804ff;
     --header-height: 0.3fr;
     --clr-boxshadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
@@ -360,7 +361,7 @@ main #menu {
     grid-area: content2;
     margin-bottom: 1rem;
     background-color: #ffffff;
-    color: #d65804ff;
+    color: #5f7ff5;
     border-radius: 20px;
     border-radius: 20px;
     box-shadow: var(--clr-boxshadow);
@@ -389,7 +390,6 @@ main #menu {
 
 .content4 {
     grid-area: content4;
-    margin-bottom: 1rem;
     background-color: #ffffff;
     color: #d65804ff;
     border-radius: 20px;
