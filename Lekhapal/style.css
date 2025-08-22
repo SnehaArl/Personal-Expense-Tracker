@@ -240,8 +240,7 @@ aside .top #close {
 #balance-content label {
     font-weight: 600;
     margin-bottom: 0.5rem;
-    ;
-    color: #34495e;
+    color: var(--clr-green);
 }
 
 #balance-content input[type="text"] {
