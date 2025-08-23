@@ -20,8 +20,8 @@
             <i class="bx bxs-user"></i>
           </div>
           <div class="input-box">
-            <input type="password" name="psw" placeholder="Password" required />
-            <i class="bx bxs-lock"></i>
+            <input type="password" id= "loginpassword" name="psw" placeholder="Password" required /> <!--added id="loginpassword"-->
+            <i class="bx bx-show eye-icon" data-target="loginpassword"></i> <!--changed lockicon to eye-->
           </div>
           <div class="forgot-link">
             <a href="#">Forget Password?</a>
