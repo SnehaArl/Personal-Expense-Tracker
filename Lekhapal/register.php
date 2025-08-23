@@ -62,5 +62,6 @@
       </div>
       </div>
   </div>
+    <script src="UI.js" defer></script>
 </body>
 </html>
