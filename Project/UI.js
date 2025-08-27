@@ -30,3 +30,33 @@ function validateRegisterForm(event) {
       }
 document.querySelector('.form-box.register form').addEventListener('submit', validateRegisterForm);
 
+
+document.addEventListener('DOMContentLoaded', () => {
+  const eyeIcons = document.querySelectorAll('.eye-icon');
+
+  eyeIcons.forEach(icon => {
+    const targetId = icon.getAttribute('data-target');
+    const input = document.getElementById(targetId);
+
+    if (!input) return;
+
+    const showPassword = () => {
+      input.type = 'text';
+      icon.classList.replace('bx-show', 'bx-hide');
+    };
+
+    const hidePassword = () => {
+      input.type = 'password';
+      icon.classList.replace('bx-hide', 'bx-show');
+    };
+
+    // For mouse
+    icon.addEventListener('mousedown', showPassword);
+    icon.addEventListener('mouseup', hidePassword);
+    icon.addEventListener('mouseleave', hidePassword);
+
+    // For touch devices
+    icon.addEventListener('touchstart', showPassword);
+    icon.addEventListener('touchend', hidePassword);
+  });
+});

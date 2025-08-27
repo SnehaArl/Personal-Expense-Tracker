@@ -33,7 +33,7 @@
           <div class="input-box">
             <input
               type="password" id="password" name="password" placeholder="Password" required />
-            <i class="bx bxs-lock"></i>
+             <i class="bx bx-show eye-icon" data-target="password"></i>
           </div>
 
           <div class="input-box">
@@ -42,7 +42,7 @@
               id="confirmPassword"
               placeholder="Confirm Password"
               required />
-            <i class="bx bxs-lock"></i>
+           <i class="bx bx-show eye-icon" data-target="confirmPassword"></i>
           </div>
 
           <div id="error-message" ></div>
@@ -62,5 +62,6 @@
       </div>
       </div>
   </div>
+    <script src="UI.js" defer></script>
 </body>
 </html>
