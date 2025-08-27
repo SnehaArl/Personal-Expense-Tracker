@@ -39,9 +39,7 @@
             </div>
 
             <?php
-           // $user_id = $_SESSION['user_id'];
-           // $filter = $_GET['filter'] ?? 'current'; //if exists uses its value else default: current
-
+            
             $condition = "";
             if ($filter == "today") {
                 $condition = "AND date = CURDATE()";
