@@ -444,11 +444,26 @@ header .profile {
     cursor: pointer;
     translate: 100%;
 }
-
-.report-main{
-    
+#report-main {
+    background-color: var(--clr-background);
+    grid-area: main;
+    display: grid;   /* 👈 you forgot this */
+    grid-template-rows: 0.3fr 2fr;
+    grid-template-areas:
+        "top-bar"
+        "report-content";
+    grid-gap: 1rem;
+    padding: 2rem;
 }
 
+#report-main .top-bar {
+    grid-area: top-bar;
+}
+
+#report-main .report-content {
+    grid-area: report-content;
+    background-color: var(--clr-white2);
+}
 /*main section css end*/
 
 @media only screen and (max-width:550px) {

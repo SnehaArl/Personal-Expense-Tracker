@@ -37,7 +37,7 @@
                     <label>Filter By:</label>
                     <select name="filter" onchange="this.form.submit()">
                         <option value="" disabled <?php if (!isset($_GET['filter'])) echo 'selected'; ?>>--Select--</option>
-                        <option value="1month" <?php if (isset($_GET['filter']) && $_GET['filter'] == '1month') echo 'selected'; ?>>This Month</option>
+                        <option value="month" <?php if (isset($_GET['filter']) && $_GET['filter'] == 'month') echo 'selected'; ?>>This Month</option>
                         <option value="6months" <?php if (isset($_GET['filter']) && $_GET['filter'] == '6months') echo 'selected'; ?>>Last 6 Months</option>
                         <option value="year" <?php if (isset($_GET['filter']) && $_GET['filter'] == 'year') echo 'selected'; ?>>This Year</option>
                         <option value="all" <?php if (isset($_GET['filter']) && $_GET['filter'] == 'all') echo 'selected'; ?>>All</option>
@@ -74,12 +74,14 @@
                         ?>
                     </select>
                 </form>
+            </div>
 
+            <div class="report-content">
                 <?php
                 if (!empty($type)) {
                     if ($type == 'expense') {
                         $table = "expenses";
-                        $c_col = "categories_id";
+                        $c_col = "category_id";
                         $c_table = "expense_categories";
                     } else {
                         $table = "incomes";
@@ -88,21 +90,20 @@
                     }
 
                     $sql = "SELECT t.*, c.name AS category_name 
-            FROM $table t 
-            JOIN $c_table c ON t.$c_col = c.id 
-            WHERE t.user_id = $user_id";
+                     FROM $table t 
+                    JOIN $c_table c ON t.$c_col = c.id 
+                    WHERE t.user_id = $user_id";
+
+                    $sql_total = "SELECT SUM(t.amount) AS total_amount
+                    FROM $table t
+                    WHERE t.user_id = $user_id";
+
 
                     // Category filter
                     if ($category != '') {
                         $sql .= " AND t.$c_col = '$category'";
                     }
                     switch ($filter) {
-                        case 'today':
-                            $sql .= " AND DATE(t.date) = CURDATE()";
-                            break;
-                        case 'week':
-                            $sql .= " AND YEARWEEK(t.date, 1) = YEARWEEK(CURDATE(), 1)";
-                            break;
                         case 'month':
                             $sql .= " AND MONTH(t.date) = MONTH(CURDATE()) 
                       AND YEAR(t.date) = YEAR(CURDATE())";
@@ -113,7 +114,6 @@
                         case 'year':
                             $sql .= " AND YEAR(t.date) = YEAR(CURDATE())";
                             break;
-                        case 'all':
                         default:
                             // No date filter
                             break;
@@ -122,10 +122,13 @@
 
                     $result = mysqli_query($conn, $sql);
 
-                    // 5. Show results in table
+                    $result_total = mysqli_query($conn, $sql_total);
+                    $total_row = mysqli_fetch_assoc($result_total);
+                    $total = $total_row['total_amount'] ?? 0;
+
                     if (mysqli_num_rows($result) > 0) {
                         echo "<h3>Report ($type)</h3>";
-                        echo "<table border='1' cellpadding='5'>
+                        echo "<table border='1' cellspacing='0' cellpadding='5'>
                 <tr>
                     <th>Date</th>
                     <th>Description</th>
@@ -140,11 +143,19 @@
                     <td>{$row['category_name']}</td>
                   </tr>";
                         }
-                        echo "</table>";
-                    } else {
+                        
+                    echo "<tr style='font-weight:bold; background:#f2f2f2;'>
+                    <td colspan='2' >Total:</td>
+                    <td colspan='2'>{$total}</td>
+                    </tr>";
+                    echo "</table>";
+                    } 
+                    else {
                         echo "<p>No records found.</p>";
                     }
                 }
+
+               
                 ?>
             </div>
 
