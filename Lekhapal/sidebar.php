@@ -36,7 +36,7 @@
                 <h3>Add income</h3>
                  </a>
 
-                <a href="#">
+                <a href="report.php">
                 <span class="material-symbols-sharp">finance</span>
                 <h3>Reports</h3>
                  </a>

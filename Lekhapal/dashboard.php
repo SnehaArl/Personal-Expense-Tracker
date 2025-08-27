@@ -23,6 +23,10 @@
             <div class="top-bar">
                 <span id="menu" class="material-symbols-sharp" onclick='openSidebar()'>menu</span>
 
+                <?php
+                 $user_id = $_SESSION['user_id'];
+                $filter = $_GET['filter'] ?? 'today'; //if exists uses its value else default: current
+                ?>
                 <form method="get" action="">
                     <label>Display:</label>
                     <select name="filter" onchange="this.form.submit()">
@@ -35,8 +39,8 @@
             </div>
 
             <?php
-            $user_id = $_SESSION['user_id'];
-            $filter = $_GET['filter'] ?? 'current'; //if exists uses its value else default: current
+           // $user_id = $_SESSION['user_id'];
+           // $filter = $_GET['filter'] ?? 'current'; //if exists uses its value else default: current
 
             $condition = "";
             if ($filter == "today") {

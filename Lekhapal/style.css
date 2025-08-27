@@ -445,6 +445,10 @@ header .profile {
     translate: 100%;
 }
 
+.report-main{
+    
+}
+
 /*main section css end*/
 
 @media only screen and (max-width:550px) {
