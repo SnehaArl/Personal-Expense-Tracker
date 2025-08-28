@@ -20,14 +20,14 @@
         <?php include 'sidebar.php'; ?>
         <?php include 'dbconnection.php'; ?>
 
-        <main id="dashboard-main">
+        <main id="report-main">
             <div class="top-bar">
                 <!--<span id="menu" class="material-symbols-sharp" onclick='openSidebar()'>menu</span>
                 <div class="sort">-->
 
                 <?php
                 $user_id = $_SESSION['user_id'];
-                $filter   = $_GET['filter'] ?? 'all';
+                $filter   = $_GET['filter'] ?? '';
                 $type     = $_GET['type'] ?? '';
                 $category = $_GET['category'] ?? '';
                 ?>
@@ -40,7 +40,6 @@
                         <option value="month" <?php if (isset($_GET['filter']) && $_GET['filter'] == 'month') echo 'selected'; ?>>This Month</option>
                         <option value="6months" <?php if (isset($_GET['filter']) && $_GET['filter'] == '6months') echo 'selected'; ?>>Last 6 Months</option>
                         <option value="year" <?php if (isset($_GET['filter']) && $_GET['filter'] == 'year') echo 'selected'; ?>>This Year</option>
-                        <option value="all" <?php if (isset($_GET['filter']) && $_GET['filter'] == 'all') echo 'selected'; ?>>All</option>
                     </select>
 
                     <!-- Type Filter -->
@@ -102,20 +101,29 @@
                     // Category filter
                     if ($category != '') {
                         $sql .= " AND t.$c_col = '$category'";
+                        $sql_total .= " AND t.$c_col = '$category'";
                     }
                     switch ($filter) {
                         case 'month':
                             $sql .= " AND MONTH(t.date) = MONTH(CURDATE()) 
-                      AND YEAR(t.date) = YEAR(CURDATE())";
+                            AND YEAR(t.date) = YEAR(CURDATE())";
+
+                            $sql_total .= " AND MONTH(t.date) = MONTH(CURDATE()) 
+                            AND YEAR(t.date) = YEAR(CURDATE())";
                             break;
+
                         case '6months':
                             $sql .= " AND t.date >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)";
+
+                            $sql_total .= " AND t.date >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)";
                             break;
+
                         case 'year':
                             $sql .= " AND YEAR(t.date) = YEAR(CURDATE())";
+                            $sql_total .= " AND YEAR(t.date) = YEAR(CURDATE())";
                             break;
                         default:
-                            // No date filter
+                            // No filter
                             break;
                     }
                     $sql .= " ORDER BY t.date DESC";
@@ -154,11 +162,51 @@
                         echo "<p>No records found.</p>";
                     }
                 }
-
                
                 ?>
-            </div>
+                </div>
 
+                <div class="comparision-content">
+                    <?php
+                    if ($type == 'expense') {
+        echo "<h3>Monthly Expense Comparison</h3>";
+
+        // Overall comparison
+        $sql_this_month = "SELECT SUM(amount) AS total
+                           FROM expenses
+                           WHERE user_id = $user_id
+                           AND MONTH(date) = MONTH(CURDATE())
+                           AND YEAR(date) = YEAR(CURDATE())";
+        $result = mysqli_query($conn, $sql_this_month);
+        $this_month_total = $result ? 
+        mysqli_fetch_assoc($result)['total'] ?? 0 : 0;
+
+        $sql_prev_month = "SELECT SUM(amount) AS total
+                           FROM expenses
+                           WHERE user_id = $user_id
+                           AND MONTH(date) = MONTH(CURDATE() - INTERVAL 1 MONTH)
+                           AND YEAR(date) = YEAR(CURDATE() - INTERVAL 1 MONTH)";
+        $resultpre = mysqli_query($conn, $sql_prev_month);
+        $prev_month_total  = $resultpre ? 
+        mysqli_fetch_assoc($resultpre)['total'] ?? 0 : 0;
+
+
+        $diff = $this_month_total - $prev_month_total;
+
+        echo "<p><strong>This Month:</strong> $this_month_total</p>";
+        echo "<p><strong>Previous Month:</strong> $prev_month_total</p>";
+
+        if ($diff > 0) {
+            echo "<p style='color:red;'>You spent $diff more than last month.</p>";
+        } elseif ($diff < 0) {
+            echo "<p style='color:green;'>You saved " . abs($diff) . " compared to last month.</p>";
+        } else {
+            echo "<p>You spent exactly the same as last month.</p>";
+        }
+    }
+                  ?>
+                </div>
+                    
         </main>
     </div>
 </body>

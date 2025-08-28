@@ -68,11 +68,11 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+       /* document.addEventListener("DOMContentLoaded", function() {
             //  Prevent past dates
             let today = new Date().toISOString().split("T")[0];
             document.getElementById("date").setAttribute("min", today);
-        });
+        });*/
 
         document.getElementById("addExpenseForm").addEventListener("submit", function(e) {
             let isValid = true;

@@ -67,11 +67,11 @@
         <!--main end-->
     </div>
     <script >
-        document.addEventListener("DOMContentLoaded", function() {
-    // 🔹 Prevent past dates
+      /*  document.addEventListener("DOMContentLoaded", function() {
+    //  Prevent past dates
     let today = new Date().toISOString().split("T")[0];
     document.getElementById("date").setAttribute("min", today);
-  });
+  });*/
 
   //validation for income form
 document.getElementById("addIncomeForm").addEventListener("submit", function(e) {

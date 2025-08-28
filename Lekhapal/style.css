@@ -447,13 +447,15 @@ header .profile {
 #report-main {
     background-color: var(--clr-background);
     grid-area: main;
-    display: grid;   /* 👈 you forgot this */
-    grid-template-rows: 0.3fr 2fr;
+    display: grid;  
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 0.2fr 2fr;
     grid-template-areas:
-        "top-bar"
-        "report-content";
+        "top-bar top-bar"
+        "report-content comparision-content";
     grid-gap: 1rem;
     padding: 2rem;
+    overflow-y: auto;
 }
 
 #report-main .top-bar {
@@ -462,7 +464,15 @@ header .profile {
 
 #report-main .report-content {
     grid-area: report-content;
-    background-color: var(--clr-white2);
+    background-color: #ffffff;
+    padding:1rem;
+    border-radius: 1px;
+}
+#report-main .comparision-content {
+    grid-area: comparision-content;
+    background-color: #ffffff;
+    padding:1rem;
+    border-radius: 1px;
 }
 /*main section css end*/
 
