@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +25,7 @@
                 <span id="menu" class="material-symbols-sharp" onclick='openSidebar()'>menu</span>
 
                 <?php
-                 $user_id = $_SESSION['user_id'];
+                $user_id = $_SESSION['user_id'];
                 $filter = $_GET['filter'] ?? 'today'; //if exists uses its value else default: current
                 ?>
                 <form method="get" action="">
@@ -39,7 +40,7 @@
             </div>
 
             <?php
-            
+
             $condition = "";
             if ($filter == "today") {
                 $condition = "AND date = CURDATE()";
@@ -49,7 +50,7 @@
             } elseif ($filter == "month") {
                 $condition = "AND YEAR(date) = YEAR(CURDATE()) AND MONTH(date) = MONTH(CURDATE())";
             }
-            
+
             $sql_income = "SELECT SUM(amount) AS total_income FROM incomes WHERE user_id='$user_id' $condition";
             $result_income = mysqli_query($conn, $sql_income);
             $row_income = mysqli_fetch_assoc($result_income);
@@ -67,22 +68,42 @@
                 <h3>Add Initial Balance</h3>
                 <div id="balance-content">
                     <label>Balance amount:</label>
-                    <form action="initial_budget.php" method="post">
-                        <input type="text" name="initialBudget" required>
+                    <form id="wallet-form" action="initial_budget.php" method="post">
+                        <input id="initialBudget" type="text" name="initialBudget" required>
                         <input type="submit" value="Set budget">
                     </form>
                 </div>
             </div>
 
+            <script>
+                document.getElementById("wallet-form").addEventListener("submit", function(e) {
+                            let isValid = true;
+                            let errors = [];
+
+                            // Amount check
+                            let amount = document.getElementById("initialBudget").value.trim();
+                            if (amount === "" || !/^[0-9]+(\.[0-9]{1,2})?$/.test(amount)) {
+                                isValid = false;
+                                errors.push("Enter a valid income amount (numbers only, max 2 decimals).");
+                            }
+
+
+                            if (!isValid) {
+                                e.preventDefault();
+                                alert(errors.join("\n"));
+                            }
+                        });
+            </script>
+
             <div class="content2">
                 <h2>Total Income</h2>
-                 <div id="income-content">
+                <div id="income-content">
                     <?php
                     if ($total_income >= 0) {
                         echo "<h1> $total_income</h1>";
                     }
                     ?>
-                 </div>
+                </div>
             </div>
             <div class="content3">
                 <h2>Total Expense</h2>
@@ -94,7 +115,7 @@
                     ?>
                 </div>
             </div>
-            <div class="content4" >
+            <div class="content4">
                 <h2>Wallet</h2>
                 <div id="wallet-content">
                     <?php
@@ -114,8 +135,8 @@
                 </div>
             </div>
 
-            <div class="content5" >
-               
+            <div class="content5">
+
             </div>
         </main>
     </div>
