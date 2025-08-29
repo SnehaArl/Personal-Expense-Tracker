@@ -474,6 +474,11 @@ header .profile {
     padding:1rem;
     border-radius: 1px;
 }
+#report-main .report-content h3{
+    font-size: 1.2rem;
+    font-weight: 600;
+    /*color: var(--clr-green);*/
+}
 /*main section css end*/
 
 @media only screen and (max-width:550px) {
