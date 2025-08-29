@@ -107,7 +107,7 @@ body, html {
 <body class="intro-page">
   <div class="intro-wrapper">
     <div class="left-panel">
-      <h1>लेखापाल</h1>
+      <h1>Lekhapal</h1>
     </div>
 
     <div class="main-content">
